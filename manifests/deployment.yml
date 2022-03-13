@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: tmdb 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tmdb
+  template:
+    metadata:
+      labels:
+        app: tmdb 
+    spec:
+      containers:
+        - name: tmdb 
+          image: algebra.azurecr.io/tmdb
+          ports:
+          - containerPort: 80
