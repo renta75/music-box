@@ -18,8 +18,13 @@ class MusicLibraryBloc extends Bloc<MusicLibraryEvent, MusicLibraryState> {
     on<MusicLibraryFetchEvent>((event, emit) async {
       emit.call(const MusicLibraryLoadingState(message: "Loading"));
       _tracks = await musicTracksRepository.getMusicTracks(page: 1);
+      List<MusicTrack> tracks=List.empty();
+      try {
+        tracks = await musicTracksRepository.getBorrowedTracks(page: 1);
+      } catch (exc) {
+        tracks = List.empty();
+      }
 
-      var tracks = await musicTracksRepository.getBorrowedTracks(page: 1);
       emit.call(MusicLibrarySuccessState(library: _tracks, borrowed: tracks));
     });
     on<MusicLibraryPlayEvent>((event, emit) async {

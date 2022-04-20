@@ -32,7 +32,7 @@ class LocalStorage {
   }
 
   Future<String?> getUserName() async {
-    return "administrator@localhost.hr".split('@')[0];
+    
     if (_userName != null) {
       return _userName;
     }

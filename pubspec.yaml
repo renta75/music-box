@@ -47,6 +47,7 @@ dependencies:
   responsive_grid_list: ^1.2.4
   collapsible_sidebar: ^2.0.1+2
   awesome_dialog: ^2.2.0
+  flutter_login: ^3.2.0
 
 dev_dependencies:
   flutter_test:
